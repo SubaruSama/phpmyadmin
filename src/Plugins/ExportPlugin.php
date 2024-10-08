@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
@@ -53,7 +54,7 @@ abstract class ExportPlugin implements Plugin
      * @param string $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    abstract public function exportDBHeader(string $db, string $dbAlias = ''): bool;
+    abstract public function exportDBHeader(DatabaseName $db, DatabaseName $dbAlias): bool;
 
     /**
      * Outputs database footer

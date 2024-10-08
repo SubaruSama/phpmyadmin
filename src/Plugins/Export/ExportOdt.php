@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -168,10 +169,10 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db      Database name
+     * @param DatabaseName $db      Database name
      * @param string $dbAlias Aliases of db
      */
-    public function exportDBHeader(string $db, string $dbAlias = ''): bool
+    public function exportDBHeader(DatabaseName $db, DatabaseName $dbAlias): bool
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
